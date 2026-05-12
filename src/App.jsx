@@ -50,17 +50,33 @@ export default function App() {
           {/* TÉLÉCHARGEMENT IOS */}
           <div className="pt-4 md:pt-8 mt-2 md:mt-8 border-t border-gray-200 flex flex-col items-center md:items-start w-full">
             <p className="text-[10px] md:text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 md:mb-4 text-center md:text-left">Téléchargez votre app IOS</p>
-            <div className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer">
-              <img
-                src="/logo_premium.png"
-                alt="Paddock App Icon"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-xl object-contain bg-white border border-gray-100 shadow-sm flex-shrink-0"
-              />
-              <div className="flex flex-col text-left">
-                <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
-                <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Bientôt sur l'App Store</span>
+            
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start items-center md:items-start">
+              {/* App Store Button */}
+              <div className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                <img
+                  src="/logo_premium.png"
+                  alt="Paddock App Icon"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-xl object-contain bg-white border border-gray-100 shadow-sm flex-shrink-0"
+                />
+                <div className="flex flex-col text-left">
+                  <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
+                  <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Bientôt sur l'App Store</span>
+                </div>
+              </div>
+
+              {/* Beta Tester Button */}
+              <div className="flex items-center gap-3 md:gap-4 bg-gray-50 p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-dashed border-gray-300 opacity-80 cursor-not-allowed">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center shadow-inner flex-shrink-0">
+                  <span className="text-xl md:text-2xl grayscale">🔑</span>
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-sm md:text-lg font-bold text-gray-600">Bêta Testeur</span>
+                  <span className="text-[10px] md:text-xs text-gray-400 font-mono font-semibold">Demander une clé</span>
+                </div>
               </div>
             </div>
+            
           </div>
 
         </div>
