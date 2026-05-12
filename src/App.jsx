@@ -74,12 +74,12 @@ export default function App() {
       </section>
 
       {/* FOOTER SECTION */}
-      <footer className="bg-gray-900 text-white py-8 md:py-10 mt-12 border-t-[6px] border-orange-500">
+      <footer className="bg-gray-900 text-white py-6 md:py-8 mt-10 border-t-[6px] border-orange-500">
         <div className="max-w-6xl mx-auto px-5">
           
           {/* SOCIAL MEDIA */}
-          <div className="flex flex-col items-center md:items-start gap-4 mb-8 border-b border-gray-800 pb-8">
-            <h3 className="text-[10px] md:text-sm font-mono text-orange-500 tracking-widest uppercase font-bold">SUIVEZ-NOUS</h3>
+          <div className="flex flex-col items-center md:items-start gap-4 mb-6 border-b border-gray-800 pb-6">
+            <h3 className="text-[10px] md:text-xs font-mono text-orange-500 tracking-widest uppercase font-bold">SUIVEZ-NOUS</h3>
             <div className="flex justify-center md:justify-start gap-6 md:gap-10 items-center">
               
               {/* Instagram */}
@@ -89,10 +89,10 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-pink-500 p-2 md:p-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-pink-500 p-2">
                   <img src="/instagram.png" alt="Instagram" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Instagram</span>
+                <span className="text-[9px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Instagram</span>
               </a>
 
               {/* LinkedIn */}
@@ -102,10 +102,10 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-blue-500 p-2 md:p-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-blue-500 p-2">
                   <img src="/linkedin.png" alt="LinkedIn" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">LinkedIn</span>
+                <span className="text-[9px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">LinkedIn</span>
               </a>
 
               {/* Facebook */}
@@ -115,39 +115,39 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-indigo-500 p-2 md:p-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-indigo-500 p-2">
                   <img src="/facebook.png" alt="Facebook" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Facebook</span>
+                <span className="text-[9px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Facebook</span>
               </a>
 
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-10">
 
             {/* Bloc Email */}
             <div className="text-center md:text-left flex-shrink-0">
-              <h4 className="text-xl md:text-2xl font-black mb-3 md:mb-4 uppercase tracking-tight">Contactez-nous</h4>
+              <h4 className="text-lg md:text-xl font-black mb-3 md:mb-4 uppercase tracking-tight">Contactez-nous</h4>
               <a
                 href="mailto:contact@paddock-auto.fr"
-                className="inline-block bg-gray-800 hover:bg-orange-500 text-orange-400 hover:text-white px-4 md:px-6 py-3 md:py-4 rounded-xl font-mono text-xs md:text-base font-bold transition-all border border-gray-700 hover:border-orange-400 shadow-lg"
+                className="inline-block bg-gray-800 hover:bg-orange-500 text-orange-500 hover:text-white px-4 md:px-5 py-2 md:py-3 rounded-xl font-mono text-xs md:text-sm font-bold transition-all border border-gray-700 hover:border-orange-500 shadow-lg"
               >
                 contact@paddock-auto.fr
               </a>
             </div>
 
             {/* Bloc Les Dirigeants */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-8 text-center md:text-left w-full md:w-auto">
-              <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
-                <p className="font-bold text-base md:text-xl">Mr Pontvianne Willy</p>
-                <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-6 text-center md:text-left w-full md:w-auto">
+              <div className="space-y-1 bg-gray-800/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-800 flex-1 md:flex-none">
+                <p className="font-bold text-sm md:text-base">Mr Pontvianne Willy</p>
+                <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold leading-relaxed">
                   Co-Dirigeant<br />Responsable Développement
                 </p>
               </div>
-              <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
-                <p className="font-bold text-base md:text-xl">Mr Cucchi Jean-Charles</p>
-                <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
+              <div className="space-y-1 bg-gray-800/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-800 flex-1 md:flex-none">
+                <p className="font-bold text-sm md:text-base">Mr Cucchi Jean-Charles</p>
+                <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold leading-relaxed">
                   Co-Dirigeant<br />Responsable Opérationnel
                 </p>
               </div>
