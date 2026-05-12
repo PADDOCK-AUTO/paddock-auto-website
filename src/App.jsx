@@ -74,11 +74,11 @@ export default function App() {
       </section>
 
       {/* FOOTER SECTION */}
-      <footer className="bg-gray-900 text-white py-12 md:py-20 mt-12 border-t-[6px] border-orange-500">
+      <footer className="bg-gray-900 text-white py-8 md:py-10 mt-12 border-t-[6px] border-orange-500">
         <div className="max-w-6xl mx-auto px-5">
           
           {/* SOCIAL MEDIA */}
-          <div className="flex flex-col items-center md:items-start gap-6 mb-16 border-b border-gray-800 pb-12">
+          <div className="flex flex-col items-center md:items-start gap-4 mb-8 border-b border-gray-800 pb-8">
             <h3 className="text-[10px] md:text-sm font-mono text-orange-500 tracking-widest uppercase font-bold">SUIVEZ-NOUS</h3>
             <div className="flex justify-center md:justify-start gap-6 md:gap-10 items-center">
               
@@ -89,8 +89,8 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-pink-600 transition-all shadow-lg border border-gray-700 group-hover:border-pink-500 p-2 md:p-3">
-                  <img src="/instagram.png" alt="Instagram" className="w-full h-full object-contain brightness-0 invert" />
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-pink-500 p-2 md:p-3">
+                  <img src="/instagram.png" alt="Instagram" className="w-full h-full object-contain" />
                 </div>
                 <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Instagram</span>
               </a>
@@ -102,8 +102,8 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-blue-600 transition-all shadow-lg border border-gray-700 group-hover:border-blue-500 p-2 md:p-3">
-                  <img src="/linkedin.png" alt="LinkedIn" className="w-full h-full object-contain brightness-0 invert" />
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-blue-500 p-2 md:p-3">
+                  <img src="/linkedin.png" alt="LinkedIn" className="w-full h-full object-contain" />
                 </div>
                 <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">LinkedIn</span>
               </a>
@@ -115,8 +115,8 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
               >
-                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-indigo-600 transition-all shadow-lg border border-gray-700 group-hover:border-indigo-500 p-2 md:p-3">
-                  <img src="/facebook.png" alt="Facebook" className="w-full h-full object-contain brightness-0 invert" />
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-gray-700 transition-all shadow-lg border border-gray-700 group-hover:border-indigo-500 p-2 md:p-3">
+                  <img src="/facebook.png" alt="Facebook" className="w-full h-full object-contain" />
                 </div>
                 <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Facebook</span>
               </a>
