@@ -73,88 +73,89 @@ export default function App() {
 
       </section>
 
-      {/* CONTACT SECTION */}
-      <section className="bg-gray-900 text-white py-10 md:py-16 mt-6 md:mt-12 border-t-[6px] border-orange-500">
-        <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12">
+      {/* FOOTER SECTION */}
+      <footer className="bg-gray-900 text-white py-12 md:py-20 mt-12 border-t-[6px] border-orange-500">
+        <div className="max-w-6xl mx-auto px-5">
+          
+          {/* SOCIAL MEDIA */}
+          <div className="flex flex-col items-center md:items-start gap-6 mb-16 border-b border-gray-800 pb-12">
+            <h3 className="text-[10px] md:text-sm font-mono text-orange-500 tracking-widest uppercase font-bold">SUIVEZ-NOUS</h3>
+            <div className="flex justify-center md:justify-start gap-6 md:gap-10 items-center">
+              
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/paddock_auto/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
+              >
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-pink-600 transition-all shadow-lg border border-gray-700 group-hover:border-pink-500 p-2 md:p-3">
+                  <img src="/instagram.png" alt="Instagram" className="w-full h-full object-contain brightness-0 invert" />
+                </div>
+                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Instagram</span>
+              </a>
 
-          {/* Bloc Email */}
-          <div className="text-center md:text-left flex-shrink-0">
-            <h4 className="text-xl md:text-2xl font-black mb-3 md:mb-4 uppercase tracking-tight">Contactez-nous</h4>
-            <a
-              href="mailto:contact@paddock-auto.fr"
-              className="inline-block bg-gray-800 hover:bg-orange-500 text-orange-400 hover:text-white px-4 md:px-6 py-3 md:py-4 rounded-xl font-mono text-xs md:text-base font-bold transition-all border border-gray-700 hover:border-orange-400 shadow-lg"
-            >
-              contact@paddock-auto.fr
-            </a>
-          </div>
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/company/paddockauto" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
+              >
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-blue-600 transition-all shadow-lg border border-gray-700 group-hover:border-blue-500 p-2 md:p-3">
+                  <img src="/linkedin.png" alt="LinkedIn" className="w-full h-full object-contain brightness-0 invert" />
+                </div>
+                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">LinkedIn</span>
+              </a>
 
-          {/* Bloc Les Dirigeants */}
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-8 text-center md:text-left w-full md:w-auto">
-            <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
-              <p className="font-bold text-base md:text-xl">Mr Pontvianne Willy</p>
-              <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
-                Co-Dirigeant<br />Responsable Développement
-              </p>
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/profile.php?id=61563645310902" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
+              >
+                <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gray-800 group-hover:bg-indigo-600 transition-all shadow-lg border border-gray-700 group-hover:border-indigo-500 p-2 md:p-3">
+                  <img src="/facebook.png" alt="Facebook" className="w-full h-full object-contain brightness-0 invert" />
+                </div>
+                <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-500 group-hover:text-white transition-colors">Facebook</span>
+              </a>
+
             </div>
-            <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
-              <p className="font-bold text-base md:text-xl">Mr Cucchi Jean-Charles</p>
-              <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
-                Co-Dirigeant<br />Responsable Opérationnel
-              </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-12">
+
+            {/* Bloc Email */}
+            <div className="text-center md:text-left flex-shrink-0">
+              <h4 className="text-xl md:text-2xl font-black mb-3 md:mb-4 uppercase tracking-tight">Contactez-nous</h4>
+              <a
+                href="mailto:contact@paddock-auto.fr"
+                className="inline-block bg-gray-800 hover:bg-orange-500 text-orange-400 hover:text-white px-4 md:px-6 py-3 md:py-4 rounded-xl font-mono text-xs md:text-base font-bold transition-all border border-gray-700 hover:border-orange-400 shadow-lg"
+              >
+                contact@paddock-auto.fr
+              </a>
             </div>
-          </div>
 
-        </div>
-      </section>
-
-      {/* SOCIAL MEDIA SECTION */}
-      <section className="bg-white py-12 md:py-20 border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-5 text-center">
-          <h3 className="text-[10px] md:text-sm font-mono text-orange-500 mb-8 md:mb-12 tracking-widest uppercase font-bold">Suivez l'aventure Paddock</h3>
-          <div className="flex justify-center gap-8 md:gap-20 items-center">
-            
-            {/* Instagram */}
-            <a 
-              href="https://www.instagram.com/paddock_auto/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
-            >
-              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-pink-50 transition-all shadow-sm border border-gray-100 group-hover:border-pink-200 p-2 md:p-3">
-                <img src="/instagram.png" alt="Instagram" className="w-full h-full object-contain" />
+            {/* Bloc Les Dirigeants */}
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-8 text-center md:text-left w-full md:w-auto">
+              <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
+                <p className="font-bold text-base md:text-xl">Mr Pontvianne Willy</p>
+                <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
+                  Co-Dirigeant<br />Responsable Développement
+                </p>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">Instagram</span>
-            </a>
-
-            {/* LinkedIn */}
-            <a 
-              href="https://www.linkedin.com/company/paddockauto" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
-            >
-              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-blue-50 transition-all shadow-sm border border-gray-100 group-hover:border-blue-200 p-2 md:p-3">
-                <img src="/linkedin.png" alt="LinkedIn" className="w-full h-full object-contain" />
+              <div className="space-y-1 md:space-y-2 bg-gray-800/50 px-5 py-4 md:p-6 rounded-2xl border border-gray-800 flex-1 md:flex-none">
+                <p className="font-bold text-base md:text-xl">Mr Cucchi Jean-Charles</p>
+                <p className="text-gray-400 text-[10px] md:text-sm uppercase tracking-widest font-semibold leading-relaxed">
+                  Co-Dirigeant<br />Responsable Opérationnel
+                </p>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">LinkedIn</span>
-            </a>
-
-            {/* Facebook */}
-            <a 
-              href="https://www.facebook.com/profile.php?id=61563645310902" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
-            >
-              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-indigo-50 transition-all shadow-sm border border-gray-100 group-hover:border-indigo-200 p-2 md:p-3">
-                <img src="/facebook.png" alt="Facebook" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">Facebook</span>
-            </a>
+            </div>
 
           </div>
         </div>
-      </section>
+      </footer>
 
     </div>
   );
