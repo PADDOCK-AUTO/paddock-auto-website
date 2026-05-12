@@ -107,27 +107,61 @@ export default function App() {
         </div>
       </section>
 
-      {/* STACK TECH SECTION */}
-      <section className="bg-white py-10 md:py-20">
+      {/* SOCIAL MEDIA SECTION */}
+      <section className="bg-white py-12 md:py-20 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-5 text-center">
-          <h3 className="text-[10px] md:text-sm font-mono text-orange-500 mb-6 md:mb-8 tracking-widest uppercase font-bold">Stack Technique</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-3xl font-bold text-gray-900">React Native</span>
-              <span className="text-[10px] uppercase tracking-tighter text-gray-500 font-bold mt-1">Core Engine</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-3xl font-bold text-gray-900">Expo</span>
-              <span className="text-[10px] uppercase tracking-tighter text-gray-500 font-bold mt-1">Ecosystem</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-3xl font-bold text-gray-900">SQLite</span>
-              <span className="text-[10px] uppercase tracking-tighter text-gray-500 font-bold mt-1">Local-First DB</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-3xl font-bold text-gray-900">Tailwind</span>
-              <span className="text-[10px] uppercase tracking-tighter text-gray-500 font-bold mt-1">Styling</span>
-            </div>
+          <h3 className="text-[10px] md:text-sm font-mono text-orange-500 mb-8 md:mb-12 tracking-widest uppercase font-bold">Suivez l'aventure Paddock</h3>
+          <div className="flex justify-center gap-8 md:gap-20 items-center">
+            
+            {/* Instagram */}
+            <a 
+              href="https://www.instagram.com/paddock_auto/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
+            >
+              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-pink-50 transition-all shadow-sm border border-gray-100 group-hover:border-pink-200">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-gray-700 group-hover:text-pink-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">Instagram</span>
+            </a>
+
+            {/* LinkedIn */}
+            <a 
+              href="https://www.linkedin.com/company/paddockauto" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
+            >
+              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-blue-50 transition-all shadow-sm border border-gray-100 group-hover:border-blue-200">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-gray-700 group-hover:text-blue-700 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">LinkedIn</span>
+            </a>
+
+            {/* Facebook */}
+            <a 
+              href="https://www.facebook.com/profile.php?id=61563645310902" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex flex-col items-center gap-3 transition-transform hover:scale-110"
+            >
+              <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-50 group-hover:bg-indigo-50 transition-all shadow-sm border border-gray-100 group-hover:border-indigo-200">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-gray-700 group-hover:text-indigo-700 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-gray-900 transition-colors">Facebook</span>
+            </a>
+
           </div>
         </div>
       </section>
