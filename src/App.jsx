@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
+    <div className="bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
 
       {/* L'ENTÊTE */}
       <nav className="px-4 py-3 md:p-6 flex justify-between items-center max-w-6xl mx-auto w-full border-b border-gray-200">
         <div className="w-32 md:w-64">
           <img
-            src="/banner5.png"
+            src="/paddock_baniere_15.png"
             alt="Paddock Logo"
             className="w-full h-auto object-contain"
           />
@@ -16,10 +16,10 @@ export default function App() {
       </nav>
 
       {/* HERO SECTION */}
-      <section className="max-w-6xl mx-auto px-5 py-6 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12 flex-1">
+      <section className="max-w-6xl mx-auto px-5 py-6 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
 
         {/* TEXTE */}
-        <div className="flex-1 space-y-4 md:space-y-6 text-center md:text-left w-full">
+        <div className="space-y-4 md:space-y-6 text-center md:text-left w-full">
 
           {/* TITRE */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
