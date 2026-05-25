@@ -76,8 +76,8 @@ export default function App() {
                   <span className="text-xl md:text-2xl">✉️</span>
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-sm md:text-lg font-bold text-orange-600 group-hover:text-white transition-colors">BETA TEST Pré-inscription</span>
-                  <span className="text-[10px] md:text-xs text-orange-400 group-hover:text-orange-100 font-mono font-semibold transition-colors">Soyez les premiers informés</span>
+                  <span className="text-sm md:text-lg font-bold text-orange-600 group-hover:text-white transition-colors">BETA TEST</span>
+                  <span className="text-[10px] md:text-xs text-orange-400 group-hover:text-orange-100 font-mono font-semibold transition-colors">Pré-inscription</span>
                 </div>
               </a>
             </div>
