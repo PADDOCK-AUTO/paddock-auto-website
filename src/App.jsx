@@ -65,16 +65,21 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Beta Tester Button */}
-              <div className="flex items-center gap-3 md:gap-4 bg-gray-50 p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-dashed border-gray-300 opacity-80 cursor-not-allowed">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center shadow-inner flex-shrink-0">
-                  <span className="text-xl md:text-2xl grayscale">🔑</span>
+              {/* Pre-inscription Button */}
+              <a
+                href="https://05a8e8be.sibforms.com/serve/MUIFALYtz79yfJ19PscGLo4xAoKLvrD3AhpLvP3WXqyPu-IQDCj4ZcAYaJ6AawdprvPbxGtafAcD1ogDFAs0ZfqlSViTOH3x2b1bIS-nS6AmJzUhe8Zq1qb2G5cRgzTl8edrPMIzz2-3yysfb-frvy3XrqVS5WVnlvPWdJ89-nbfdbL6TnO3R_hFIlUlNL-wFSNpgAaQ-shy1i3Q0g=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 md:gap-4 bg-orange-50 p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-orange-300 hover:bg-orange-500 hover:border-orange-500 hover:shadow-lg transition-all cursor-pointer group"
+              >
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-orange-100 group-hover:bg-orange-400 border border-orange-200 group-hover:border-orange-300 flex items-center justify-center shadow-inner flex-shrink-0 transition-all">
+                  <span className="text-xl md:text-2xl">✉️</span>
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-sm md:text-lg font-bold text-gray-600">Bêta Testeur</span>
-                  <span className="text-[10px] md:text-xs text-gray-400 font-mono font-semibold">Demander une clé</span>
+                  <span className="text-sm md:text-lg font-bold text-orange-600 group-hover:text-white transition-colors">BETA TEST Pré-inscription</span>
+                  <span className="text-[10px] md:text-xs text-orange-400 group-hover:text-orange-100 font-mono font-semibold transition-colors">Soyez les premiers informés</span>
                 </div>
-              </div>
+              </a>
             </div>
             
           </div>
