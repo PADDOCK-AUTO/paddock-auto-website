@@ -112,32 +112,47 @@ export const LEGAL_CONTENT = {
                 items: [
                     'Lors de l\'utilisation de Paddock, nous collectons les données suivantes :',
                     '• Données d\'identité : Nom, Prénom, Adresse email, Numéro de téléphone (facultatif).',
-                    '• Données des véhicules : Marque, modèle, immatriculation, kilométrage, VIN, historique d\'entretien.',
-                    '• Fichiers : Photos des véhicules et documents (factures, contrôles techniques) téléversés volontairement dans le Coffre-Fort et la Galerie.',
+                    '• Données des véhicules : Marque, modèle, immatriculation, kilométrage, VIN, historique d\'entretien, contrôles techniques, pneus, assurances.',
+                    '• Fichiers : Photos des véhicules et documents (factures, contrôles techniques, cartes grises) téléversés volontairement dans le Coffre-Fort et la Galerie.',
+                    '• Localisation précise : utilisée uniquement lors d\'une recherche de stations-service ou de bornes de recharge à proximité.',
+                    '• Identifiant publicitaire de l\'appareil : utilisé pour l\'affichage de publicités (Google AdMob), uniquement avec votre consentement.',
+                    '• Données d\'abonnement : statut Premium et historique d\'achat, gérés via Apple/Google et notre prestataire technique RevenueCat.',
                 ],
             },
             {
                 heading: 'Finalité de la collecte',
                 items: [
-                    'Ces données sont strictement nécessaires pour :',
+                    'Ces données sont utilisées pour :',
                     '1. Créer et sécuriser le compte utilisateur.',
-                    '2. Assurer la synchronisation du carnet d\'entretien entre l\'application mobile et le CRM.',
-                    '3. Permettre à l\'utilisateur de retrouver son historique en cas de changement d\'appareil (sauvegarde Cloud).',
+                    '2. Assurer la synchronisation du carnet d\'entretien entre l\'application mobile et le CRM, et sa sauvegarde en cas de changement d\'appareil (fonctionnalité Premium).',
+                    '3. Vous proposer les stations-service et bornes de recharge les plus proches de votre position.',
+                    '4. Financer le service via l\'affichage de publicités, personnalisées uniquement avec votre consentement.',
+                    '5. Gérer votre abonnement Premium et vos éventuels essais gratuits.',
+                ],
+            },
+            {
+                heading: 'Authentification biométrique',
+                items: [
+                    'Si vous activez le déverrouillage par Face ID, vos données biométriques restent gérées exclusivement par le système iOS et ne sont jamais transmises à Paddock ni à ses serveurs. L\'application ne reçoit qu\'une confirmation de réussite ou d\'échec, et stocke vos identifiants de connexion de façon chiffrée, localement sur votre appareil (Trousseau iOS).',
                 ],
             },
             {
                 heading: 'Hébergement et Sécurité',
                 items: [
-                    'Les données sont hébergées sur les serveurs sécurisés de Google Firebase (Google Cloud Platform).',
+                    'Les données sont hébergées sur les serveurs sécurisés de Google Firebase (Google Cloud Platform), en Europe.',
                     'Les communications entre l\'Application et les serveurs sont chiffrées (HTTPS).',
                     'L\'accès aux documents est restreint au propriétaire du compte grâce aux règles de sécurité de la base de données.',
+                    'L\'envoi de nos e-mails (vérification de compte, réinitialisation de mot de passe) est assuré par un prestataire technique tiers.',
                 ],
             },
             {
                 heading: 'Partage des données',
                 items: [
                     'Vos données ne sont ni vendues, ni louées, ni cédées à des tiers à des fins commerciales.',
-                    'Les données liées à un véhicule peuvent être transférées à un nouvel utilisateur uniquement si le propriétaire actuel utilise la fonction "Cession de véhicule" de son plein gré.',
+                    '• Les données liées à un véhicule peuvent être transférées à un nouvel utilisateur uniquement si le propriétaire actuel utilise la fonction "Cession de véhicule" de son plein gré.',
+                    '• Google (AdMob) peut recevoir l\'identifiant publicitaire de votre appareil pour l\'affichage de publicités, uniquement si vous y acceptez.',
+                    '• RevenueCat, notre prestataire de gestion des abonnements, reçoit votre statut d\'abonnement — jamais vos moyens de paiement, qui restent gérés exclusivement par Apple ou Google.',
+                    '• Lors d\'une recherche par plaque d\'immatriculation, celle-ci est transmise à un service tiers de consultation du fichier des immatriculations (SIV), à votre demande explicite.',
                 ],
             },
             {
@@ -150,12 +165,12 @@ export const LEGAL_CONTENT = {
                 ],
             },
             {
-                heading: 'Cookies et Traceurs',
+                heading: 'Publicité, cookies et traceurs',
                 items: [
-                    'L\'Application et le CRM Paddock utilisent des traceurs strictement nécessaires au bon fonctionnement du service.',
-                    '• Cookies d\'authentification : utilisés par Firebase Authentication pour maintenir votre session active de manière sécurisée. Ces cookies sont indispensables et ne nécessitent pas de consentement préalable.',
-                    '• Statistiques anonymisées : nous utilisons des outils d\'analyse pour comprendre les plantages de l\'application et améliorer les performances. Vous pouvez désactiver ce suivi dans les réglages de votre appareil.',
-                    'Aucun cookie publicitaire n\'est utilisé.',
+                    'L\'Application utilise un jeton de session (équivalent d\'un cookie) indispensable au fonctionnement du compte, via Firebase Authentication. Il ne nécessite pas de consentement préalable.',
+                    '• Publicités : l\'Application affiche des publicités via Google AdMob. Sur iOS, l\'utilisation de l\'identifiant publicitaire de votre appareil pour personnaliser ces publicités est soumise à votre autorisation explicite (App Tracking Transparency), demandée au premier lancement. Un formulaire de consentement est également présenté aux utilisateurs européens conformément au RGPD.',
+                    '• Vous pouvez refuser ou retirer ce consentement à tout moment dans les réglages de votre appareil (Réglages > Confidentialité et sécurité > Suivi) : l\'Application continue de fonctionner normalement, avec des publicités non personnalisées.',
+                    '• Aucun cookie ou traceur n\'est utilisé à d\'autres fins que celles décrites ci-dessus.',
                 ],
             },
         ],
