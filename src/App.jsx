@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LEGAL_CONTENT } from './constants/legalContent';
 
 export default function App() {
-  const [activeLegalTab, setActiveLegalTab] = useState(null);
+  const [currentRoute, setCurrentRoute] = useState(window.location.hash);
 
   const legalTabs = [
     { id: 'mentions_legales', label: 'Mentions Légales' },
@@ -12,118 +12,192 @@ export default function App() {
   ];
 
   useEffect(() => {
-    if (activeLegalTab) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
+    const handleHashChange = () => {
+      setCurrentRoute(window.location.hash);
+      window.scrollTo(0, 0);
     };
-  }, [activeLegalTab]);
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setActiveLegalTab(null);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  const getLegalKeyFromRoute = (route) => {
+    switch (route) {
+      case '#/mentions-legales':
+        return 'mentions_legales';
+      case '#/politique-de-confidentialite':
+        return 'confidentialite';
+      case '#/cgu':
+        return 'cgu';
+      case '#/cgv':
+        return 'cgv';
+      default:
+        return null;
+    }
+  };
+
+  const activeLegalKey = getLegalKeyFromRoute(currentRoute);
+
+
   return (
-    <div className="bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
-
-      {/* L'ENTÊTE */}
-      <nav className="px-4 py-3 md:p-6 flex justify-between items-center max-w-6xl mx-auto w-full border-b border-gray-200">
-        <div className="w-32 md:w-64">
-          <img
-            src="/paddock_baniere_15.png"
-            alt="Paddock Logo"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-      </nav>
-
-      {/* HERO SECTION */}
-      <section className="max-w-6xl mx-auto px-5 py-6 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
-
-        {/* TEXTE */}
-        <div className="space-y-4 md:space-y-6 text-center md:text-left w-full">
-
-          {/* TITRE */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
-            PILOTEZ VOTRE <span className="text-orange-500">ENTRETIEN.</span>
-          </h2>
-
-          {/* SOUS-TITRE */}
-          <p className="text-gray-600 text-sm md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
-            La solution numérique qui transforme votre historique de maintenance en un véritable atout de revente. Complet, à jour, partout avec vous.
-          </p>
-
-          {/* ARGUMENTS CLÉS */}
-          <div className="flex flex-col gap-2 md:gap-3 items-center md:items-start">
-            <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
-              <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-blue-100 text-blue-600 text-xs">⚡</span>
-              Ajout instantané via Plaque d'immatriculation
-            </div>
-            <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
-              <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-green-100 text-green-600 text-xs">🔒</span>
-              Données privées sécurisées en Local-First
-            </div>
-            <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
-              <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-orange-100 text-orange-600 text-xs">🤝</span>
-              Transfert de l'historique au futur acheteur
-            </div>
+    <div className="bg-slate-50 text-gray-900 font-sans overflow-x-hidden min-h-screen flex flex-col justify-between">
+      <div>
+        {/* L'ENTÊTE */}
+        <nav className="px-4 py-3 md:p-6 flex justify-between items-center max-w-6xl mx-auto w-full border-b border-gray-200">
+          <div className="w-32 md:w-64">
+            <a href="#/">
+              <img
+                src="/paddock_baniere_15.png"
+                alt="Paddock Logo"
+                className="w-full h-auto object-contain cursor-pointer"
+              />
+            </a>
           </div>
+        </nav>
 
-          {/* TÉLÉCHARGEMENT IOS */}
-          <div className="pt-4 md:pt-8 mt-2 md:mt-8 border-t border-gray-200 flex flex-col items-center md:items-start w-full">
-            <p className="text-[10px] md:text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 md:mb-4 text-center md:text-left">Téléchargez votre app IOS</p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start items-center md:items-start">
-              {/* App Store Button */}
-              <div className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer">
-                <img
-                  src="/logo_premium.png"
-                  alt="Paddock App Icon"
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-xl object-contain bg-white border border-gray-100 shadow-sm flex-shrink-0"
-                />
-                <div className="flex flex-col text-left">
-                  <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
-                  <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Bientôt sur l'App Store</span>
+        {activeLegalKey ? (
+          /* SECTION PAGE DÉDIÉE LÉGALE */
+          <main className="max-w-4xl mx-auto px-5 py-8 md:py-16">
+            {/* Fil d'ariane & Bouton retour */}
+            <div className="mb-8 md:mb-12">
+              <a 
+                href="#/" 
+                className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-orange-500 transition-colors"
+              >
+                ← Retour à l'accueil
+              </a>
+            </div>
+
+            {/* Titre principal */}
+            <div className="border-b border-gray-200 pb-6 mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight flex items-center gap-3">
+                <span className="w-2.5 h-10 bg-orange-500 rounded-full"></span>
+                {LEGAL_CONTENT[activeLegalKey]?.title}
+              </h1>
+            </div>
+
+            {/* Navigation par onglets (facultative mais premium) */}
+            <div className="mb-10 bg-gray-100 p-1.5 rounded-2xl flex gap-1 overflow-x-auto">
+              {legalTabs.map((tab) => {
+                const tabHash = {
+                  mentions_legales: '#/mentions-legales',
+                  confidentialite: '#/politique-de-confidentialite',
+                  cgu: '#/cgu',
+                  cgv: '#/cgv'
+                }[tab.id];
+                return (
+                  <a
+                    key={tab.id}
+                    href={tabHash}
+                    className={`px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all whitespace-nowrap text-center flex-1 ${
+                      activeLegalKey === tab.id
+                        ? 'bg-orange-500 text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {tab.label}
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Contenu textuel */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-10">
+              {LEGAL_CONTENT[activeLegalKey]?.sections.map((section, idx) => (
+                <div key={idx} className="space-y-4">
+                  <h2 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-wide border-l-4 border-orange-500 pl-4 text-left">
+                    {section.heading}
+                  </h2>
+                  <div className="space-y-3 text-gray-600 text-sm md:text-base leading-relaxed text-left">
+                    {section.items.map((item, itemIdx) => {
+                      if (item.startsWith('• ')) {
+                        return (
+                          <div key={itemIdx} className="flex gap-2 pl-4">
+                            <span className="text-orange-500">•</span>
+                            <p>{item.substring(2)}</p>
+                          </div>
+                        );
+                      }
+                      if (item.match(/^\d+\./)) {
+                        const match = item.match(/^(\d+\.)\s*(.*)/);
+                        return (
+                          <div key={itemIdx} className="flex gap-2 pl-4">
+                            <span className="text-orange-500 font-bold">{match[1]}</span>
+                            <p>{match[2]}</p>
+                          </div>
+                        );
+                      }
+                      return <p key={itemIdx}>{item}</p>;
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </main>
+        ) : (
+          /* HERO SECTION DE L'ACCUEIL */
+          <section className="max-w-6xl mx-auto px-5 py-6 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
+
+            {/* TEXTE */}
+            <div className="space-y-4 md:space-y-6 text-center md:text-left w-full">
+
+              {/* TITRE */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+                PILOTEZ VOTRE <span className="text-orange-500">ENTRETIEN.</span>
+              </h2>
+
+              {/* SOUS-TITRE */}
+              <p className="text-gray-600 text-sm md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+                La solution numérique qui transforme votre historique de maintenance en un véritable atout de revente. Complet, à jour, partout avec vous.
+              </p>
+
+              {/* ARGUMENTS CLÉS */}
+              <div className="flex flex-col gap-2 md:gap-3 items-center md:items-start">
+                <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
+                  <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-blue-100 text-blue-600 text-xs">⚡</span>
+                  Ajout instantané via Plaque d'immatriculation
+                </div>
+                <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
+                  <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-green-100 text-green-600 text-xs">🔒</span>
+                  Données privées sécurisées en Local-First
+                </div>
+                <div className="flex items-center gap-3 text-xs md:text-sm font-bold text-gray-700 text-left">
+                  <span className="flex items-center justify-center min-w-[22px] w-[22px] h-[22px] rounded-full bg-orange-100 text-orange-600 text-xs">🤝</span>
+                  Transfert de l'historique au futur acheteur
                 </div>
               </div>
 
-              {/* Pre-inscription Button */}
-              <a
-                href="https://05a8e8be.sibforms.com/serve/MUIFALYtz79yfJ19PscGLo4xAoKLvrD3AhpLvP3WXqyPu-IQDCj4ZcAYaJ6AawdprvPbxGtafAcD1ogDFAs0ZfqlSViTOH3x2b1bIS-nS6AmJzUhe8Zq1qb2G5cRgzTl8edrPMIzz2-3yysfb-frvy3XrqVS5WVnlvPWdJ89-nbfdbL6TnO3R_hFIlUlNL-wFSNpgAaQ-shy1i3Q0g=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 md:gap-4 bg-orange-50 p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-orange-300 hover:bg-orange-500 hover:border-orange-500 hover:shadow-lg transition-all cursor-pointer group"
-              >
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-orange-100 group-hover:bg-orange-400 border border-orange-200 group-hover:border-orange-300 flex items-center justify-center shadow-inner flex-shrink-0 transition-all">
-                  <span className="text-xl md:text-2xl">✉️</span>
+              {/* TÉLÉCHARGEMENT IOS */}
+              <div className="pt-4 md:pt-8 mt-2 md:mt-8 border-t border-gray-200 flex flex-col items-center md:items-start w-full">
+                <p className="text-[10px] md:text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 md:mb-4 text-center md:text-left">Téléchargez votre app IOS</p>
+                
+                <div className="flex justify-center md:justify-start items-center w-full">
+                  {/* App Store Button */}
+                  <div className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                    <img
+                      src="/logo_premium.png"
+                      alt="Paddock App Icon"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl object-contain bg-white border border-gray-100 shadow-sm flex-shrink-0"
+                    />
+                    <div className="flex flex-col text-left">
+                      <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
+                      <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Bientôt sur l'App Store</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-sm md:text-lg font-bold text-orange-600 group-hover:text-white transition-colors">BETA TEST</span>
-                  <span className="text-[10px] md:text-xs text-orange-400 group-hover:text-orange-100 font-mono font-semibold transition-colors">Pré-inscription</span>
-                </div>
-              </a>
+                
+              </div>
+
             </div>
-            
-          </div>
 
-        </div>
+            {/* IPHONE MOCKUP — plus petit sur mobile */}
+            <div className="relative w-48 h-[390px] sm:w-56 sm:h-[450px] md:w-72 md:h-[580px] mx-auto md:mx-0 bg-black rounded-[2rem] md:rounded-[3rem] border-[5px] md:border-[8px] border-gray-800 shadow-2xl shadow-gray-300 overflow-hidden flex-shrink-0 z-10">
+              <div className="absolute top-0 w-full h-5 md:h-8 bg-gray-800 rounded-b-2xl z-20"></div>
+              <video src="/video_presentation.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem] pt-1 md:pt-2" />
+            </div>
 
-        {/* IPHONE MOCKUP — plus petit sur mobile */}
-        <div className="relative w-48 h-[390px] sm:w-56 sm:h-[450px] md:w-72 md:h-[580px] mx-auto md:mx-0 bg-black rounded-[2rem] md:rounded-[3rem] border-[5px] md:border-[8px] border-gray-800 shadow-2xl shadow-gray-300 overflow-hidden flex-shrink-0 z-10">
-          <div className="absolute top-0 w-full h-5 md:h-8 bg-gray-800 rounded-b-2xl z-20"></div>
-          <video src="/video_presentation.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem] pt-1 md:pt-2" />
-        </div>
-
-      </section>
+          </section>
+        )}
+      </div>
 
       {/* FOOTER SECTION */}
       <footer className="bg-gray-900 text-white py-6 md:py-8 mt-10 border-t-[6px] border-orange-500">
@@ -193,30 +267,30 @@ export default function App() {
             <div className="text-center md:text-left flex-shrink-0">
               <h4 className="text-lg md:text-xl font-black mb-3 md:mb-4 uppercase tracking-tight">Informations Légales</h4>
               <div className="flex flex-col gap-2 font-mono text-xs md:text-sm font-bold">
-                <button
-                  onClick={() => setActiveLegalTab('mentions_legales')}
+                <a
+                  href="#/mentions-legales"
                   className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
                 >
                   Mentions Légales
-                </button>
-                <button
-                  onClick={() => setActiveLegalTab('confidentialite')}
+                </a>
+                <a
+                  href="#/politique-de-confidentialite"
                   className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
                 >
                   Politique de Confidentialité
-                </button>
-                <button
-                  onClick={() => setActiveLegalTab('cgu')}
+                </a>
+                <a
+                  href="#/cgu"
                   className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
                 >
                   CGU
-                </button>
-                <button
-                  onClick={() => setActiveLegalTab('cgv')}
+                </a>
+                <a
+                  href="#/cgv"
                   className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
                 >
                   CGV
-                </button>
+                </a>
               </div>
             </div>
 
@@ -240,90 +314,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* MODAL MENTIONS LÉGALES */}
-      {activeLegalTab && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in"
-          onClick={() => setActiveLegalTab(null)}
-        >
-          <div 
-            className="bg-white text-gray-900 rounded-3xl max-w-3xl w-full max-h-[85vh] shadow-2xl flex flex-col relative overflow-hidden transition-all transform scale-100 duration-300 animate-scale-up"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header de la modale */}
-            <div className="p-6 md:p-8 pb-4 border-b border-gray-100 flex items-center justify-between gap-4">
-              <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight flex items-center gap-2">
-                <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
-                {LEGAL_CONTENT[activeLegalTab]?.title}
-              </h3>
-              
-              <button 
-                onClick={() => setActiveLegalTab(null)}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-orange-500 text-gray-500 hover:text-white transition-all shadow-sm cursor-pointer"
-                aria-label="Fermer"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Onglets dans la modale */}
-            <div className="px-6 md:px-8 border-b border-gray-100 bg-gray-50 flex gap-2 overflow-x-auto py-2">
-              {legalTabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveLegalTab(tab.id)}
-                  className={`px-4 py-2 text-xs md:text-sm font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
-                    activeLegalTab === tab.id
-                      ? 'bg-orange-500 text-white shadow-sm'
-                      : 'text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Contenu de la modale */}
-            <div className="p-6 md:p-8 overflow-y-auto flex-1 space-y-6">
-              {LEGAL_CONTENT[activeLegalTab]?.sections.map((section, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h4 className="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wider border-l-2 border-orange-500 pl-3 text-left">
-                    {section.heading}
-                  </h4>
-                  <div className="space-y-2 text-gray-600 text-xs md:text-sm leading-relaxed text-left">
-                    {section.items.map((item, itemIdx) => {
-                      if (item.startsWith('• ')) {
-                        return (
-                          <div key={itemIdx} className="flex gap-2 pl-3">
-                            <span className="text-orange-500">•</span>
-                            <p>{item.substring(2)}</p>
-                          </div>
-                        );
-                      }
-                      if (item.match(/^\d+\./)) {
-                        const match = item.match(/^(\d+\.)\s*(.*)/);
-                        return (
-                          <div key={itemIdx} className="flex gap-2 pl-3">
-                            <span className="text-orange-500 font-bold">{match[1]}</span>
-                            <p>{match[2]}</p>
-                          </div>
-                        );
-                      }
-                      return <p key={itemIdx}>{item}</p>;
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Footer de la modale */}
-            <div className="p-4 bg-gray-50 border-t border-gray-100 text-center text-[10px] text-gray-400 font-mono">
-              Paddock-Auto — SIRET 831937750 — contact@paddock-auto.fr
-            </div>
-          </div>
-        </div>
-      )}
-
     </div>
+
   );
 }
