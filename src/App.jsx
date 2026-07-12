@@ -1,6 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { LEGAL_CONTENT } from './constants/legalContent';
 
 export default function App() {
+  const [activeLegalTab, setActiveLegalTab] = useState(null);
+
+  const legalTabs = [
+    { id: 'mentions_legales', label: 'Mentions Légales' },
+    { id: 'confidentialite', label: 'Confidentialité' },
+    { id: 'cgu', label: 'CGU' },
+    { id: 'cgv', label: 'CGV' }
+  ];
+
+  useEffect(() => {
+    if (activeLegalTab) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeLegalTab]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setActiveLegalTab(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
 
@@ -158,6 +189,37 @@ export default function App() {
               </a>
             </div>
 
+            {/* Bloc Légal */}
+            <div className="text-center md:text-left flex-shrink-0">
+              <h4 className="text-lg md:text-xl font-black mb-3 md:mb-4 uppercase tracking-tight">Informations Légales</h4>
+              <div className="flex flex-col gap-2 font-mono text-xs md:text-sm font-bold">
+                <button
+                  onClick={() => setActiveLegalTab('mentions_legales')}
+                  className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  Mentions Légales
+                </button>
+                <button
+                  onClick={() => setActiveLegalTab('confidentialite')}
+                  className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  Politique de Confidentialité
+                </button>
+                <button
+                  onClick={() => setActiveLegalTab('cgu')}
+                  className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  CGU
+                </button>
+                <button
+                  onClick={() => setActiveLegalTab('cgv')}
+                  className="text-center md:text-left text-gray-400 hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  CGV
+                </button>
+              </div>
+            </div>
+
             {/* Bloc Les Dirigeants */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-6 text-center md:text-left w-full md:w-auto">
               <div className="space-y-1 bg-gray-800/50 px-4 py-3 md:px-5 md:py-4 rounded-xl border border-gray-800 flex-1 md:flex-none">
@@ -177,6 +239,90 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* MODAL MENTIONS LÉGALES */}
+      {activeLegalTab && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in"
+          onClick={() => setActiveLegalTab(null)}
+        >
+          <div 
+            className="bg-white text-gray-900 rounded-3xl max-w-3xl w-full max-h-[85vh] shadow-2xl flex flex-col relative overflow-hidden transition-all transform scale-100 duration-300 animate-scale-up"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header de la modale */}
+            <div className="p-6 md:p-8 pb-4 border-b border-gray-100 flex items-center justify-between gap-4">
+              <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight flex items-center gap-2">
+                <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
+                {LEGAL_CONTENT[activeLegalTab]?.title}
+              </h3>
+              
+              <button 
+                onClick={() => setActiveLegalTab(null)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-orange-500 text-gray-500 hover:text-white transition-all shadow-sm cursor-pointer"
+                aria-label="Fermer"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Onglets dans la modale */}
+            <div className="px-6 md:px-8 border-b border-gray-100 bg-gray-50 flex gap-2 overflow-x-auto py-2">
+              {legalTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveLegalTab(tab.id)}
+                  className={`px-4 py-2 text-xs md:text-sm font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
+                    activeLegalTab === tab.id
+                      ? 'bg-orange-500 text-white shadow-sm'
+                      : 'text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Contenu de la modale */}
+            <div className="p-6 md:p-8 overflow-y-auto flex-1 space-y-6">
+              {LEGAL_CONTENT[activeLegalTab]?.sections.map((section, idx) => (
+                <div key={idx} className="space-y-3">
+                  <h4 className="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wider border-l-2 border-orange-500 pl-3 text-left">
+                    {section.heading}
+                  </h4>
+                  <div className="space-y-2 text-gray-600 text-xs md:text-sm leading-relaxed text-left">
+                    {section.items.map((item, itemIdx) => {
+                      if (item.startsWith('• ')) {
+                        return (
+                          <div key={itemIdx} className="flex gap-2 pl-3">
+                            <span className="text-orange-500">•</span>
+                            <p>{item.substring(2)}</p>
+                          </div>
+                        );
+                      }
+                      if (item.match(/^\d+\./)) {
+                        const match = item.match(/^(\d+\.)\s*(.*)/);
+                        return (
+                          <div key={itemIdx} className="flex gap-2 pl-3">
+                            <span className="text-orange-500 font-bold">{match[1]}</span>
+                            <p>{match[2]}</p>
+                          </div>
+                        );
+                      }
+                      return <p key={itemIdx}>{item}</p>;
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer de la modale */}
+            <div className="p-4 bg-gray-50 border-t border-gray-100 text-center text-[10px] text-gray-400 font-mono">
+              Paddock-Auto — SIRET 831937750 — contact@paddock-auto.fr
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
