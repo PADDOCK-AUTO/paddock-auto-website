@@ -172,7 +172,12 @@ export default function App() {
                 
                 <div className="flex justify-center md:justify-start items-center w-full">
                   {/* App Store Button */}
-                  <div className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                  <a
+                    href="https://apps.apple.com/fr/app/paddock-auto/id6761768150"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 md:gap-4 bg-white p-2.5 md:p-4 rounded-2xl w-full max-w-[260px] md:w-fit border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  >
                     <img
                       src="/logo_premium.png"
                       alt="Paddock App Icon"
@@ -180,9 +185,9 @@ export default function App() {
                     />
                     <div className="flex flex-col text-left">
                       <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
-                      <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Bientôt sur l'App Store</span>
+                      <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Disponible maintenant sur l'App Store</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
                 
               </div>
