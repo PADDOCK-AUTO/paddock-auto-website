@@ -185,7 +185,7 @@ export default function App() {
                     />
                     <div className="flex flex-col text-left">
                       <span className="text-sm md:text-lg font-bold text-gray-900">Paddock</span>
-                      <span className="text-[10px] md:text-xs text-orange-500 font-mono font-semibold">Disponible maintenant sur l'App Store</span>
+                      <span className="text-[10px] md:text-xs text-green-600 font-mono font-semibold">Disponible maintenant sur l'App Store</span>
                     </div>
                   </a>
                 </div>
